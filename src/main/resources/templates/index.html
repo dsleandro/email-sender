@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+</head>
+<body>
+    <div>
+        <h3>Send email</h3>
+        <form method="POST" action="/send" >
+            <fieldset>
+                <div style="float:left;">
+                    <table cellspacing="0" width="300">
+                        <tr>
+                            <th><label for="input_to">To:</label></th>
+                            <td><input name="to" id="input_to" type="email"/>
+                                <small>Enter email address</small><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="input_subject">Subject:</label></th>
+                            <td><input name="subject" id="input_subject"/>
+                                <small>Enter the subject</small><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="input_text">Message:</label></th>
+                            <td><textarea name="text"
+                                             rows="5" cols="50"
+                                             id="input_text" ></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="check_attachment">Send with attached file:</label></th>
+                            <td><input type="checkbox" name="attachment" id="check_attachment"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="submit" value="Send">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
