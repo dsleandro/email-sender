@@ -30,9 +30,5 @@ build/
 ### VS Code ###
 .vscode/
 
-
-### .properties
-*.properties
-
 ### attached files
 attachments/
