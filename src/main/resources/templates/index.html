@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Send Email</title>
+
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
+
 <body>
-    <div>
-        <h3>Send email</h3>
-        <form method="POST" action="/send" >
-            <fieldset>
-                <div style="float:left;">
-                    <table cellspacing="0" width="300">
-                        <tr>
-                            <th><label for="input_to">To:</label></th>
-                            <td><input name="to" id="input_to" type="email"/>
-                                <small>Enter email address</small><br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for="input_subject">Subject:</label></th>
-                            <td><input name="subject" id="input_subject"/>
-                                <small>Enter the subject</small><br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for="input_text">Message:</label></th>
-                            <td><textarea name="text"
-                                             rows="5" cols="50"
-                                             id="input_text" ></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for="check_attachment">Send with attached file:</label></th>
-                            <td><input type="checkbox" name="attachment" id="check_attachment"></td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>
-                                <input type="submit" value="Send">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </fieldset>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" th:unless="${Message == null}">
+        <span th:text="${Message}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <div class="container bg-warning mt-10 w-25">
+        <h3 class="text-center">Send email</h3>
+        <form method="POST" action="/send">
+
+            <input class="form-control" name="to" id="to" type="email" placeholder="To (Email address)" required />
+
+            <input class="form-control" name="subject" id="subject" placeholder="Subject" required />
+
+            <textarea class="form-control" name="text" rows="5" cols="50" id="text"
+                placeholder="Text Message"></textarea>
+
+            <div class="form-group">
+                <label for="attachment">Send with attached file:</label>
+                <input type="checkbox" name="attachment" id="attachment">
+            </div>
+
+            <input class="form-control" type="submit" value="Send">
+
         </form>
     </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
